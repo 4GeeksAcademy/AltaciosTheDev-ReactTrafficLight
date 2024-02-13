@@ -23,12 +23,16 @@ export default function TrafficLight(){
         padding: "10px"
 
     }
+    //State that will control all 3 colors 
     const [glow, setGlow] = useState("")
 
+    //Handler function receives the color and sets the glow to that color
     function glowHandler(color){
+        //Checks condition if the color given is the same as the last value of state, in that case, turn off the light.
         if(glow == color){
             setGlow("")
         }
+        //If last value of state not equal to color given, turn on the light.
         else{
             setGlow(color)
         }
