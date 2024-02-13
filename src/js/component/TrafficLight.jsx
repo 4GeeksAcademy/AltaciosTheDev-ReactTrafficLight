@@ -23,36 +23,24 @@ export default function TrafficLight(){
         padding: "10px"
 
     }
-    
-     const [red, setRed] = useState(false)
-     const [yellow, setYellow] = useState(false)
-     const [green, setGreen] = useState(false)
-    
-     function redHandler(){
-         setRed(prevRed => !prevRed)
-         setYellow(false)
-         setGreen(false)
-     }
+    const [glow, setGlow] = useState("")
 
-     function yellowHandler(){
-         setYellow(prevYellow => !prevYellow)
-         setRed(false)
-         setGreen(false)
-     }
-
-     function greenHandler(){
-         setGreen(prevGreen => !prevGreen)
-         setRed(false)
-         setYellow(false)
-     }
+    function glowHandler(color){
+        if(glow == color){
+            setGlow("")
+        }
+        else{
+            setGlow(color)
+        }
+    }
 
     return(
         <div>
             <div style={trafficTopStyles}></div>
             <div style={trafficLightContainerStyle}>
-                <div className={`light light-stop ${red ? "light-stop-on" : ""}`} onClick={redHandler}></div>
-                <div className={`light light-caution ${yellow ? "light-caution-on" : ""}`} onClick={yellowHandler}></div>
-                <div className={`light light-go ${green ? "light-go-on" : ""}`} onClick={greenHandler}></div>
+                <div className={`light light-stop ${glow === "red" ? "light-stop-on" : ""}`} onClick={() => glowHandler("red")}></div>
+                <div className={`light light-caution ${glow === "orange" ? "light-caution-on" : ""}`} onClick={() => glowHandler("orange")}></div>
+                <div className={`light light-go ${glow === "green" ? "light-go-on" : ""}`} onClick={() => glowHandler("green")}></div>
             </div>
         </div>
     )
