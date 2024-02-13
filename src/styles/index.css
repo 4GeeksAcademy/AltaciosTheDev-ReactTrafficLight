@@ -10,3 +10,34 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.light{
+    margin: auto;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+}
+
+.light-stop{
+    background: red;
+}
+
+.light-stop-on{
+    box-shadow: 5px 3px 104px 56px rgba(194,68,68,0.97);
+}
+
+.light-caution{
+    background: orange;
+}
+
+.light-caution-on{
+    box-shadow: 5px 3px 104px 56px rgba(232,145,46,1);
+}
+
+.light-go{
+    background: green;
+}
+
+.light-go-on{
+    box-shadow: 5px 3px 104px 56px rgba(29,240,14,1);
+}
