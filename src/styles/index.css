@@ -41,3 +41,9 @@
 .light-go-on{
     box-shadow: 5px 3px 104px 56px rgba(29,240,14,1);
 }
+
+.btn{
+    width: 200px;
+    background: black;
+    color: white;
+}
