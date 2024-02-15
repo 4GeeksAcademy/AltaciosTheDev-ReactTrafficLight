@@ -54,13 +54,15 @@ export default function TrafficLight(){
 
     //Handler function receives the color and sets the glow to that color
     function glowHandler(color){
-        //Checks condition if the color given is the same as the last value of state, in that case, turn off the light.
-        if(glow == color){
-            setGlow("")
-        }
-        //If last value of state not equal to color given, turn on the light.
-        else{
-            setGlow(color)
+        if(auto === false){
+            //Checks condition if the color given is the same as the last value of state, in that case, turn off the light.
+            if(glow == color){
+                setGlow("")
+            }
+            //If last value of state not equal to color given, turn on the light.
+            else{
+                setGlow(color)
+            }
         }
     }
 
@@ -68,9 +70,9 @@ export default function TrafficLight(){
         <div>
             <div style={trafficTopStyles}></div>
             <div style={trafficLightContainerStyle}>
-                <div className={`light light-stop ${glow === "red" ? "light-stop-on" : ""}`} onClick={() => auto ? ()=>{} :glowHandler("red")}></div>
-                <div className={`light light-caution ${glow === "orange" ? "light-caution-on" : ""}`} onClick={() => auto ? ()=>{} :glowHandler("orange")}></div>
-                <div className={`light light-go ${glow === "green" ? "light-go-on" : ""}`} onClick={() => auto ? ()=>{} :glowHandler("green")}></div>
+                <div className={`light light-stop ${glow === "red" ? "light-stop-on" : ""}`} onClick={() => {glowHandler("red")}}></div>
+                <div className={`light light-caution ${glow === "orange" ? "light-caution-on" : ""}`} onClick={() => {glowHandler("orange")}}></div>
+                <div className={`light light-go ${glow === "green" ? "light-go-on" : ""}`} onClick={() => {glowHandler("green")}}></div>
             </div>
             
              { auto === false && <button onClick={() => setAuto(true)} className="btn btn-success">GO Auto Mode</button>}
